@@ -30,7 +30,6 @@ public class RolodexViewAdapter extends RecyclerView.Adapter<RolodexViewAdapter.
         mDataset = myDataset;
     }
 
-    // Create new views (invoked by the layout manager).
     @Override
     public RolodexViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
@@ -39,7 +38,6 @@ public class RolodexViewAdapter extends RecyclerView.Adapter<RolodexViewAdapter.
         return new ViewHolder(v);
     }
 
-    // Replace the contents of a view (invoked by the layout manager).
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - Get element from your dataset at this position.
@@ -47,13 +45,21 @@ public class RolodexViewAdapter extends RecyclerView.Adapter<RolodexViewAdapter.
         holder.mTextView.setText(mDataset[position % mDataset.length]);
     }
 
-    // Return the size of your dataset (invoked by the layout manager).
     @Override
     public int getItemCount() {
         // Hackish: This is set to INT_MAX so that user has a lot of free space to move around to
         // make the view appear as infinite. This should be improved.
         return Integer.MAX_VALUE;
 //        return mDataset.length;
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        // Hackish: Set to the middle position so that user can scroll in either direction for a
+        // long time. This eventually needs to be improved to wrap better.
+        recyclerView.scrollToPosition(Integer.MAX_VALUE / 2);
     }
 
 }

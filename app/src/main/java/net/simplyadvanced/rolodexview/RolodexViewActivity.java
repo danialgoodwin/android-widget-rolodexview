@@ -2,11 +2,12 @@ package net.simplyadvanced.rolodexview;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 /** A simple prototype RolodexView using RecyclerView. */
-public class RolodexViewActivity extends ActionBarActivity {
+public class RolodexViewActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -20,8 +21,6 @@ public class RolodexViewActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
-        // Use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView.
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -29,10 +28,6 @@ public class RolodexViewActivity extends ActionBarActivity {
 
         mAdapter = new RolodexViewAdapter(mDataset);
         mRecyclerView.setAdapter(mAdapter);
-
-        // Hackish: Set to the middle position so that user can scroll in either direction for a
-        // long time. This eventually needs to be improved to wrap better.
-        mRecyclerView.scrollToPosition(Integer.MAX_VALUE / 2);
     }
 
 }
