@@ -1,4 +1,4 @@
-# RolodexView #
+# RolodexView
 A simple prototype RolodexView using RecyclerView and CardView.
 
 
@@ -26,7 +26,7 @@ A simple prototype RolodexView using RecyclerView and CardView.
         @Override
         public int getItemCount() {
             // Hackish: This is set to INT_MAX so that user has a lot of free space to move around to
-            // make the view wappear as infinite. This should be improved.
+            // make the view appear as infinite. This should be improved.
             return Integer.MAX_VALUE;
         }
 
@@ -42,8 +42,13 @@ A simple prototype RolodexView using RecyclerView and CardView.
 
 
 
-## TODO ##
+## TODO
 
-- Allow more proper wrapping. (Currently, there are INT_MAX positions and the data shown is `dataset[position % data_size]`)
 - Custom scrollbar that shows current location within the dataset.
-- Make sure that this looks the same for pre-L and Lollipop+ devices. (Currently, only tested on Lollipop)
+- Allow more proper wrapping. (Currently, there are INT_MAX positions and the data shown is `dataset[position % data_size]`).
+  - But, it would take 248+ days of constant scrolling at 100 items per second to reach the end. So, maybe don't need to worry about reaching the end for now.
+
+
+
+## License
+MIT
