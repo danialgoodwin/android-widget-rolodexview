@@ -1,5 +1,7 @@
 # RolodexView
-A simple prototype RolodexView using RecyclerView and CardView.
+A simple prototype RolodexView using RecyclerView and CardView. This view allows infinite scrolling by wrapping the items so that they repeat when the user has scrolled to either end.
+
+![RolodexView sample screenshot](https://raw.githubusercontent.com/danialgoodwin/android-widget-rolodexview/master/art/sample-screenshot.png?raw=true "RolodexView sample screenshot")
 
 
 
